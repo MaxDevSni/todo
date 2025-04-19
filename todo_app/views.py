@@ -6,11 +6,16 @@ uživateli (např. HTML stránku nebo JSON).
 """
 
 from django.shortcuts import render
-from .models import TodoItemEntity
-from .serializers import ToDoSerializer
+from .models import TodoItemEntity, Category
+from .serializers import ToDoSerializer, CategorySerializer
 from rest_framework import viewsets
 
 
 class TodoItemViewSet(viewsets.ModelViewSet):
    queryset = TodoItemEntity.objects.all()
    serializer_class = ToDoSerializer
+
+
+class CategoryViewSet(viewsets.ModelViewSet):
+   queryset = Category.objects.all()
+   serializer_class = CategorySerializer
